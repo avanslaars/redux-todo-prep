@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
 class App extends Component {
   render() {
@@ -13,15 +14,7 @@ class App extends Component {
         </div>
         <div className="Todo-App">
           <TodoForm currentTodo={this.props.currentTodo} />
-          <div className="Todo-List">
-            <ul>
-              {this.props.todos.map(todo => (
-                <li key={todo.id}>
-                  <input type="checkbox" defaultChecked={todo.isComplete} /> {todo.name}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <TodoList todos={this.props.todos} />
         </div>
       </div>
     );
