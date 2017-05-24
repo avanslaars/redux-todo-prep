@@ -3,16 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import store from './store'
 
-const state = {
-  todos: [
-    {id: 1, name:'Create Static UI', isComplete: true},
-    {id: 2, name:'Create Initial State', isComplete: true},
-    {id: 3, name:'Use state to render UI', isComplete: false},
-    {id: 4, name:'Control state with Redux', isComplete: false}
-  ],
-  currentTodo: 'initial value'
-}
+const state = store.getState()
 
 ReactDOM.render(<App {...state} />, document.getElementById('root'));
 registerServiceWorker();
