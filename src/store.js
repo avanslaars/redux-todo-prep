@@ -1,5 +1,11 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import reducer from './reducers/todo'
+
+const loggerMiddleware = (state) => (next) => (action) => {
+  console.log('Action dispatched:', action, state.getState())
+  next(action)
+  console.log(`state after ${action.type}`, state.getState())
+}
 
 const initialState = {
   todos: [
@@ -11,4 +17,7 @@ const initialState = {
   currentTodo: 'initial value'
 }
 
-export default createStore(reducer, initialState)
+export default createStore(
+  reducer,
+  initialState,
+  applyMiddleware(loggerMiddleware))
