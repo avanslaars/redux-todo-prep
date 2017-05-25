@@ -5,9 +5,11 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import store from './store'
 
+const handleUpdateCurrent = (val) => store.dispatch({type: 'CURRENT_UPDATE', payload: val})
+
 const render = () => {
   const state = store.getState()
-  ReactDOM.render(<App {...state} />, document.getElementById('root'));
+  ReactDOM.render(<App {...state} updateCurrent={handleUpdateCurrent} />, document.getElementById('root'));
 }
 render()
 

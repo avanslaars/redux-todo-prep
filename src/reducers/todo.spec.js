@@ -44,4 +44,12 @@ describe('Todo Reducer', () => {
     const result = actions.reduce(reducer, initState)
     expect(result).toEqual(expectedState)
   })
+
+  test('CURRENT_UPDATE updates currentTodo value', () => {
+    const val = 'ABC'
+    const action = {type: 'CURRENT_UPDATE', payload: val}
+    const initState = {currentTodo: ''}
+    const result = reducer(initState, action)
+    expect(result).toEqual({currentTodo: val})
+  })
 })
