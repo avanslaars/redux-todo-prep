@@ -16,7 +16,8 @@
     "react-scripts": "1.0.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "json-server --static ./build db.json",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "dev-server": "json-server -p 8080 db.json",
