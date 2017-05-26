@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 import Message from './components/Message'
+import Footer from './components/Footer'
 
 class App extends Component {
   render() {
@@ -13,11 +15,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <div className="Todo-App">
-          <Message />
-          <TodoForm currentTodo={this.props.currentTodo} updateCurrent={this.props.updateCurrent} />
-          <TodoList todos={this.props.todos} />
-        </div>
+        <Router>
+          <div className="Todo-App">
+            <Message />
+            <TodoForm currentTodo={this.props.currentTodo} updateCurrent={this.props.updateCurrent} />
+            <TodoList todos={this.props.todos} />
+            <Footer />
+          </div>
+      </Router>
       </div>
     );
   }
