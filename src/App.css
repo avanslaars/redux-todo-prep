@@ -42,9 +42,9 @@ li {
 }
 
 .message {
-  background-color:red;
+  background-color:blue;
   color:white;
-  border: solid 1px red;
+  border: solid 1px blue;
   position: absolute;
   text-align: center;
   width:200px;
