@@ -1,4 +1,5 @@
 import {createStore, applyMiddleware} from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import reducer from './reducers/todo'
 
@@ -10,4 +11,6 @@ const loggerMiddleware = (state) => (next) => (action) => {
 
 export default createStore(
   reducer,
-  applyMiddleware(loggerMiddleware, thunk))
+  composeWithDevTools(
+    applyMiddleware(loggerMiddleware, thunk)  
+  ))
